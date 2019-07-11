@@ -1,0 +1,18 @@
+format_version: 4
+pipelines:
+  gocd-pipeline-test-55-pull-requests:
+    group: test-lmg
+    materials:
+      gocd-pipeline-test-55:
+        plugin_configuration:
+          id: github.pr
+          version: 1
+        options:
+          url: git@github.com:Mendeley/gocd-pipeline-test.git
+    stages:
+      - test:
+          jobs:
+            config-is-up-to-date:
+              elastic_profile_id: kubectl
+              tasks:
+                - script: ./ci/scripts/test-config-is-up-to-date
