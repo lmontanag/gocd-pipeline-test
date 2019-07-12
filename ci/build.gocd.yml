@@ -26,6 +26,11 @@ pipelines:
                     arguments:
                       - -c
                       - echo apply-dev
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - env
   gocd-pipeline-test-pull-requests:
     group: pipeline-test
     materials:
@@ -46,3 +51,8 @@ pipelines:
                     arguments:
                       - -c
                       - echo config-is-up-to-date
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - env
